@@ -1,0 +1,34 @@
+kabo "dumare" nani FenDumare
+
+kulu Foo {
+  dialen fooo {}
+  dialen fooo() {}
+  dialen fooo(a) {}
+
+  dilan kura() { }
+
+  bar {}
+  bar() {}
+  bar(a) {}
+}
+
+## Test class
+
+A.yira(FenDumare.beeseKaWele(Foo, "fooo"))    ## expect: tien
+A.yira(FenDumare.beeseKaWele(Foo, "fooo()"))  ## expect: tien
+A.yira(FenDumare.beeseKaWele(Foo, "fooo(_)")) ## expect: tien
+
+A.yira(FenDumare.beeseKaWele(Foo, "baz"))    ## expect: galon
+A.yira(FenDumare.beeseKaWele(Foo, "baz()"))  ## expect: galon
+A.yira(FenDumare.beeseKaWele(Foo, "baz(_)")) ## expect: galon
+
+## Test instance
+nin fooo = Foo.kura()
+
+A.yira(FenDumare.beeseKaWele(fooo, "bar"))    ## expect: tien
+A.yira(FenDumare.beeseKaWele(fooo, "bar()"))  ## expect: tien
+A.yira(FenDumare.beeseKaWele(fooo, "bar(_)")) ## expect: tien
+
+A.yira(FenDumare.beeseKaWele(fooo, "baz"))    ## expect: galon
+A.yira(FenDumare.beeseKaWele(fooo, "baz()"))  ## expect: galon
+A.yira(FenDumare.beeseKaWele(fooo, "baz(_)")) ## expect: galon

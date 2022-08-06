@@ -1,0 +1,38 @@
+kabo "dumare" nani Dumare
+
+kulu Foo {
+  dialen fooo { "" }
+  dialen fooo () { "" }
+  dialen fooo (a) { "" }
+
+  dilan kura() { }
+
+  bar {}
+  bar() {}
+  bar(a) {}
+}
+
+## Test class
+nin FooMirror = Dumare.diaaBo(Foo)
+
+A.yira(FooMirror.beeseKaWele("fooo"))    ## expect: tien
+A.yira(FooMirror.beeseKaWele("fooo()"))  ## expect: tien
+A.yira(FooMirror.beeseKaWele("fooo(_)")) ## expect: tien
+
+A.yira(FooMirror.beeseKaWele("baz"))    ## expect: galon
+A.yira(FooMirror.beeseKaWele("baz()"))  ## expect: galon
+A.yira(FooMirror.beeseKaWele("baz(_)")) ## expect: galon
+
+A.yira("======================================")
+## Test instance
+
+nin foooMirror = Dumare.diaaBo(Foo.kura())
+
+
+A.yira(foooMirror.beeseKaWele("bar"))    ## expect: tien
+A.yira(foooMirror.beeseKaWele("bar()"))  ## expect: tien
+A.yira(foooMirror.beeseKaWele("bar(_)")) ## expect: tien
+
+A.yira(foooMirror.beeseKaWele("baz"))    ## expect: galon
+A.yira(foooMirror.beeseKaWele("baz()"))  ## expect: galon
+A.yira(foooMirror.beeseKaWele("baz(_)")) ## expect: galon

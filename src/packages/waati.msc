@@ -1,0 +1,12 @@
+##package=nafamaw
+
+kulu Waati {
+
+    dialen sissan { Waati.currentTimestamp_ }
+    dialen highResolution { Waati.currentHighTimestamp_ }
+    dialen seconds { Waati.currentTimestamp_ / 1000  }
+    dialen millis { Waati.currentTimestamp_ }
+
+    dunan dialen currentTimestamp_
+    dunan dialen currentHighTimestamp_
+}

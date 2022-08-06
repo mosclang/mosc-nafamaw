@@ -1,0 +1,13 @@
+kulu Test {
+    dialen st1() { "Static method" }
+    dialen st1 { "Static Getter" }
+    nin _field
+    dilan kura(field) {
+        ale._field = field;
+    }
+}
+
+kabo "dumare" nani Dumare, KuluDumare
+
+nin dumare = Dumare.diaaBo(Test)
+A.yira(dumare.methodNames)

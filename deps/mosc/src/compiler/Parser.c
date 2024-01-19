@@ -632,6 +632,10 @@ void nextToken(Parser *parser) {
                 skipLineComment(parser);
                 break;
             }
+            case '@': {
+                makeToken(parser, AT_TOKEN);
+                return;
+            }
             case '^':
                 makeToken(parser, BT_XOR_TOKEN);
                 return;
@@ -661,7 +665,16 @@ void nextToken(Parser *parser) {
             case '!':
                 twoCharToken(parser, '=', NEQUAL_TOKEN, NOT_TOKEN);
                 return;
-
+            case '?':
+                if(matchChar(parser, '?')) {
+                    makeToken(parser, NULLISH_TOKEN);
+                    return;
+                }
+                if(matchChar(parser, '.')) {
+                    makeToken(parser, NULLCHECK_TOKEN);
+                    return;
+                }
+                return;
             case '.':
                 if (matchChar(parser, '.')) {
                     twoCharToken(parser, '.', SPREAD_OR_REST_TOKEN, RANGE_TOKEN);

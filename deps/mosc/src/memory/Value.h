@@ -294,8 +294,6 @@ typedef struct {
 
 typedef struct {
     bool isStatic;
-    // The method function itself. The [type] determines which field of the union
-    // is used.
     Value defaultValue;
 } Field;
 
@@ -313,7 +311,7 @@ struct sClass {
     int numFields;
     Class *superclass;
     String *name;
-
+    Value attributes;
 };
 
 Class *MSCSingleClass(MVM *vm, int numFields, String *name);

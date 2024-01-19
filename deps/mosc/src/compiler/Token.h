@@ -90,6 +90,9 @@ typedef enum {
     DIV_EQ_TOKEN = 78,
     MOD_EQ_TOKEN = 79,
     INVALID_TOKEN = 80,
+    NULLISH_TOKEN = 81,
+    NULLCHECK_TOKEN = 82,
+    AT_TOKEN = 83,
 } TokenType;
 
 typedef struct {

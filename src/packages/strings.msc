@@ -17,16 +17,16 @@ kulu Sebenw {
 
 
     dialen capitalize(s) {
-            Ensure.sebenDo(s, "s")
-            nii (s.lakalon) segin niin ""
-            nii (s.hakan == 1) segin niin Sebenw.up_(s)
-            segin niin Sebenw.up_(s[0]) + s[1..-1]
-        }
+        Ensure.sebenDo(s, "s")
+        nii (s.lakalon) segin niin ""
+        nii (s.hakan == 1) segin niin Sebenw.up_(s)
+        segin niin Sebenw.up_(s[0]) + s[1..-1]
+    }
 
-        dialen titlecase(s) {
-            Ensure.sebenDo(s, "s")
-            segin niin s.faraFara(" ").yelema {(w) => Sebenw.capitalize(Sebenw.down_(w)) }.kunBen(" ")
-        }
+    dialen titlecase(s) {
+        Ensure.sebenDo(s, "s")
+        segin niin s.faraFara(" ").yelema {(w) => Sebenw.capitalize(Sebenw.down_(w)) }.kunBen(" ")
+    }
 
  #* ************************************************************************
      * Adapting the Tcl `string match` command

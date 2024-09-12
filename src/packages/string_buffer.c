@@ -127,5 +127,6 @@ void releaseStringBuffer(void* data) {
         MSCReleaseHandle(buffer->vm, stringBufferClass);
         stringBufferClass = NULL;
     }
+    free(buffer->data);
     free(buffer);
 }

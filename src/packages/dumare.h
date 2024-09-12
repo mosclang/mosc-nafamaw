@@ -9,21 +9,19 @@
 #include "../common/common.h"
 
 
-MSCExternMethodFn MSCMirrorBindExternMethod(MVM* vm,
-                                                const char* className,
-                                                bool isStatic,
-                                                const char* signature);
-void mirrorClassMirrorHasMethod(MVM *vm);
-void mirrorClassMirrorMethodNames(MVM *vm);
-void mirrorMethodMirrorBoundToClass_(MVM *vm);
-void mirrorMethodMirrorModule_(MVM *vm);
-void mirrorMethodMirrorSignature_(MVM *vm);
-void mirrorFiberMirrorLineAt(MVM *vm);
-void mirrorFiberMirrorMethodAt(MVM *vm);
-void mirrorFiberMirrorStackFramesCount(MVM *vm);
-void mirrorModuleMirrorFromName_(MVM *vm);
-void mirrorModuleMirrorName_(MVM *vm);
-void mirrorObjectMirrorCanInvoke(MVM *vm);
+
+void mirrorClassMirrorHasMethod(Djuru *djuru);
+void mirrorClassMirrorMethodNames(Djuru *djuru);
+void mirrorMethodMirrorBoundToClass_(Djuru *djuru);
+void mirrorMethodMirrorModule_(Djuru *djuru);
+void mirrorMethodMirrorSignature_(Djuru *djuru);
+void mirrorFiberMirrorLineAt(Djuru *djuru);
+void mirrorFiberMirrorMethodAt(Djuru *djuru);
+void mirrorFiberMirrorStackFramesCount(Djuru *djuru);
+void mirrorModuleMirrorFromName_(Djuru *djuru);
+void mirrorModuleMirrorName_(Djuru *djuru);
+void mirrorObjectMirrorCanInvoke(Djuru *djuru);
+void mirrorClassMirrorMethods(Djuru *djuru);
 
 
 #endif //MOSC_DUMARE_H

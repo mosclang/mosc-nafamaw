@@ -7,8 +7,8 @@
 
 #include "msc.h"
 
-void stringsGlobMatch(MVM *vm);
-void stringsUpcase(MVM *vm);
-void stringsDowncase(MVM *vm);
+void stringsGlobMatch(Djuru *djuru);
+void stringsUpcase(Djuru *djuru);
+void stringsDowncase(Djuru *djuru);
 
 #endif //MOSC_NAFAMAW_STRINGS_H

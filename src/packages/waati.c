@@ -7,22 +7,22 @@
 
 /**
  * Get the current timestamp since epoch (1rst Jan 1970) through uv_hrtime
- * @param vm
+ * @param djuru
  */
-void currentHighTimestamp(MVM *vm) {
-    MSCEnsureSlots(vm, 1);
+void currentHighTimestamp(Djuru *djuru) {
+    MSCEnsureSlots(djuru, 1);
     uint64_t time = uv_hrtime();
-    MSCSetSlotDouble(vm, 0, time);
+    MSCSetSlotDouble(djuru, 0, time);
 
 }
 
 /**
  * returns milliseconds like JavaScript
- * @param vm
+ * @param djuru
  */
-void currentTimestamp(MVM *vm) {
+void currentTimestamp(Djuru *djuru) {
     uv_timeval64_t time;
-    MSCEnsureSlots(vm, 1);
+    MSCEnsureSlots(djuru, 1);
     uv_gettimeofday(&time);
-    MSCSetSlotDouble(vm, 0, time.tv_sec * 1000 + time.tv_usec / 1000);
+    MSCSetSlotDouble(djuru, 0, time.tv_sec * 1000 + time.tv_usec / 1000);
 }

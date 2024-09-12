@@ -1,9 +1,9 @@
-kabo "dumare" nani ModuleDumare
+kabo "dumare" nani KabilaDumare
 
 nin moduleMirror
 
 # Check `core` module handling
 moduleMirror = KabilaDumare.fromName("core")
 
-A.yira(moduleMirror ye ModuleDumare ) # expect: true
+A.yira(moduleMirror ye KabilaDumare ) # expect: true
 A.yira(moduleMirror.name ) # expect: core

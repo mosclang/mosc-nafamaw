@@ -1,0 +1,5 @@
+kabo "nafamaw" nani StringBuffer
+
+nin str = StringBuffer.kura(32).append("Molobala").preppend("Hello").insert(5, " ").append(" is a village in Mali north.")
+A.yira(str)
+A.yira(str.size)

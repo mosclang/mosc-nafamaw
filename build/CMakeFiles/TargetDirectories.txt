@@ -1,0 +1,4 @@
+/Users/doumbia0804/CLionProjects/mosc_nafamaw/build/CMakeFiles/nafamaw.dir
+/Users/doumbia0804/CLionProjects/mosc_nafamaw/build/CMakeFiles/nafamawt.dir
+/Users/doumbia0804/CLionProjects/mosc_nafamaw/build/CMakeFiles/edit_cache.dir
+/Users/doumbia0804/CLionProjects/mosc_nafamaw/build/CMakeFiles/rebuild_cache.dir

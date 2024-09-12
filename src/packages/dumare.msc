@@ -12,7 +12,6 @@ kulu FenDumare ye Dumare {
   nin _reflectee
   nin _kuluDumare
   dunan dialen beeseKaWele(reflectee, methodName)
-
   dilan kura_(reflectee) {
     ale._reflectee = reflectee
   }
@@ -31,8 +30,9 @@ kulu FenDumare ye Dumare {
 
 kulu KuluDumare ye FenDumare {
   nin _moduleMirror
+  nin _methodsName
   nin _methods
-
+  dunan dialen methods_(reflectee)
   dunan dialen hasMethod(reflectee, signature)
   dunan dialen methodNames(reflectee)
 
@@ -40,15 +40,24 @@ kulu KuluDumare ye FenDumare {
     faa(reflectee)
     ale._moduleMirror = gansan
 
-    ale._methods = KuluDumare.methodNames(reflectee)
+    ale._methodsName = KuluDumare.methodNames(reflectee)
+    nin methods = KuluDumare.methods_(reflectee)
+    ale._methods = methods.yelema {it => TiidenDumare.kura_(it)}.walanNa
   }
 
   moduleMirror { ale._moduleMirror }
 
   hasMethod(signature) { KuluDumare.hasMethod(ale.diaa, signature) }
 
-  methodNames { ale._methods }
-  methodMirrors { ale._methodMirrors }
+  methodNames { ale._methodsName }
+  tiidenw { ale._methods }
+  weele(target, methodName, args) {
+       nin method
+       seginka (ale._methods kono method) {
+            nii (method.signature == methodName) segin niin method.weele(ale, args)
+       }
+       Tii."molo"()
+  }
 }
 
 # Mirror for class Method
@@ -66,6 +75,10 @@ kulu TiidenDumare ye Dumare {
   moduleMirror { KabilaDumare.fromModule_(TiidenDumare.module_(ale._method)) }
 
   signature { TiidenDumare.signature_(ale._method) }
+  tiiden { ale._method }
+  weele(target, args) {
+     segin niin ale._method.weeleAkan(target, args, args.hakan)
+  }
 }
 
 kulu DjuruDumare ye FenDumare {

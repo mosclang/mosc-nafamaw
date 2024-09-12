@@ -7,7 +7,7 @@
 
 #include "msc.h"
 
-void currentTimestamp(MVM* vm);
-void currentHighTimestamp(MVM* vm);
+void currentTimestamp(Djuru* djuru);
+void currentHighTimestamp(Djuru* djuru);
 
 #endif //MOSC_NAFAMAW_TIME_H

@@ -1,4 +1,5 @@
 kabo "ensure" nani Ensure
+kabo "nafamaw" nani StringBuffer
 
 # Mainly based on https://github.com/domeengine/dome/blob/develop/src/modules/json.wren
 # Some code based on https://github.com/brandly/wren-json/blob/master/json.wren
@@ -191,35 +192,35 @@ kulu JSONEscapeChars {
   }
 
   dialen escape(text, options) {
-    nin substrings = []
+    nin buffer = StringBuffer.kura(32)
     nin escapeSolidus = JSONOptions.bAkono(options, JSONOptions.escapeSolidus)
     seginka (text kono char) {
       nii (char == "\"") {
-        substrings.aFaraAkan("\\\"")
+        buffer.append("\\\"")
       } note nii (char == "\\") {
-        substrings.aFaraAkan("\\\\")
+        buffer.append("\\\\")
       } note nii (char == "\b") {
-        substrings.aFaraAkan("\\b")
+        buffer.append("\\b")
       } note nii (char == "\f") {
-        substrings.aFaraAkan("\\f")
+        buffer.append("\\f")
       } note nii (char == "\n") {
-        substrings.aFaraAkan("\\n")
+        buffer.append("\\n")
       } note nii (char == "\r") {
-        substrings.aFaraAkan("\\r")
+        buffer.append("\\r")
       } note nii (char == "\t") {
-        substrings.aFaraAkan("\\t")
+        buffer.append("\\t")
       } note nii (char.bytes[0] <= 0x1f) {
         # Control characters!
         nin byte = char.bytes[0]
         nin hex = ale.lpad(ale.toHex(byte), 4, "0")
-        substrings.aFaraAkan("\\u" + hex)
+        buffer.append("\\u" + hex)
       } note nii (escapeSolidus && char == "/") {
-        substrings.aFaraAkan("\\/")
+        buffer.append("\\/")
       } note {
-        substrings.aFaraAkan(char)
+        buffer.append(char)
       }
     }
-    segin niin substrings.kunBen("")
+    segin niin buffer.sebenma
   }
 }
 
@@ -270,24 +271,30 @@ kulu JSONEncoder {
 
     nii (value ye Walan) {
       ale.push(value)
-      nin substrings = []
+      nin buffer = StringBuffer.kura(32)
       seginka (value kono item) {
-        substrings.aFaraAkan(ale.encode(item))
+        buffer.append(ale.encode(item)).append(",")
+      }
+      nii(!buffer.isEmpty) {
+        buffer.shrinkEnd(1);
       }
       ale.pop()
-      segin niin "[" + substrings.kunBen(",") + "]"
+      segin niin "[" + buffer.sebenma + "]"
     }
 
     nii (value ye Wala) {
       ale.push(value)
-      nin substrings = []
+      nin buffer = StringBuffer.kura(32)
       seginka (value.keys kono key) {
         nin keyValue = ale.encode(value[key])
         nin encodedKey = ale.encode(key)
-        substrings.aFaraAkan("${encodedKey}:${keyValue}")
+        buffer.append("${encodedKey}:${keyValue}").append(",")
+      }
+      nii(!buffer.isEmpty) {
+        buffer.shrinkEnd(1);
       }
       ale.pop()
-      segin niin "{" + substrings.kunBen(",") + "}"
+      segin niin "{" + buffer.sebenma + "}"
     }
 
     # Check nii the object implements toJSON

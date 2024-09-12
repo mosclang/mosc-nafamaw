@@ -1,0 +1,12 @@
+kulu Student {
+    nin togo
+    dilan kura(togo) {
+        ale.togo = togo;
+    }
+}
+
+kabo "dumare" nani Dumare, KuluDumare
+
+nin dumare = Dumare.diaaBo(Student)
+nin student = dumare.weele("dilan kura(_)", ["Mouss"])
+A.yira(student.togo)

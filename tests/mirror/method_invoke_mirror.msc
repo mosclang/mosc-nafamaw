@@ -1,0 +1,19 @@
+kulu Test {
+    dialen st1() { "Static method" }
+    dialen st1 { "Static Getter" }
+    nin _field
+    dilan kura(field) {
+        ale._field = field;
+        A.yira("${ale._field }:::")
+    }
+    test(a, b) { "${ale._field }:::$a - $b" }
+}
+
+kabo "dumare" nani Dumare, KuluDumare
+
+nin dumare = Dumare.diaaBo(Test)
+nin test = Test.kura("Molo")
+A.yira(test.test("rr", ".."))
+nin method = dumare.tiidenw[7]
+A.yira(method.weele(test, ["ppp", "..=", "pp"]))
+A.yira(dumare.weele("test(_,_)", ["OO", "WW", "pp"]))

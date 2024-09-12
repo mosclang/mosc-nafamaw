@@ -9,13 +9,13 @@
 
 
 // [str, strL, patt, pattL]
-void stringsGlobMatch(MVM *vm) {
-    const char* str = MSCGetSlotString(vm, 1);
-    int strLen = (int)MSCGetSlotDouble(vm, 2);
-    const char* patter = MSCGetSlotString(vm, 3);
-    int pattLen = (int)MSCGetSlotDouble(vm, 4);
+void stringsGlobMatch(Djuru *djuru) {
+    const char* str = MSCGetSlotString(djuru, 1);
+    int strLen = (int)MSCGetSlotDouble(djuru, 2);
+    const char* patter = MSCGetSlotString(djuru, 3);
+    int pattLen = (int)MSCGetSlotDouble(djuru, 4);
     int res = TclByteArrayMatch(str, strLen, patter, pattLen, 0);
-    MSCSetSlotBool(vm, 0, (bool)res);
+    MSCSetSlotBool(djuru, 0, (bool)res);
 }
 /*
 From: utf8.h README
@@ -29,21 +29,21 @@ codepoints on whether case means anything, the following categories are the only
     Greek and Coptic
     Cyrillic
 */
-void stringsUpcase(MVM *vm) {
-    const char* string = MSCGetSlotString(vm, 1);
+void stringsUpcase(Djuru *djuru) {
+    const char* string = MSCGetSlotString(djuru, 1);
     size_t ssize = strlen(string);
     char *str = (char*)malloc(ssize + 1);
     memcpy(str, string, ssize);
     utf8upr(str);
-    MSCSetSlotString(vm, 0, str);
+    MSCSetSlotString(djuru, 0, str);
     free(str);
 }
-void stringsDowncase(MVM *vm) {
-    const char* string = MSCGetSlotString(vm, 1);
+void stringsDowncase(Djuru *djuru) {
+    const char* string = MSCGetSlotString(djuru, 1);
     size_t ssize = strlen(string);
     char *str = (char*)malloc(ssize + 1);
     memcpy(str, string, ssize);
     utf8lwr(str);
-    MSCSetSlotString(vm, 0, str);
+    MSCSetSlotString(djuru, 0, str);
     free(str);
 }

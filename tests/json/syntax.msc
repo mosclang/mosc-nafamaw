@@ -1,5 +1,5 @@
 kabo "json" nani JSON
-nin data = {"name": "Molobala", "vil": gansan}
+nin data = {"name": "Molobala", "vil": gansan, "balls": ["Molo", "Polo"]}
 nin str = JSON.stringify(data)
 
 A.yira(str);

@@ -8,7 +8,7 @@
 #include "strings.h"
 #include "json.h"
 #include "dumare.h"
-#include "string_buffer.h"
+#include "buffer.h"
 
 // To locate foreign classes and modules, we build a big directory for them in
 // static data. The nested collection initializer syntax gets pretty noisy, so
@@ -90,17 +90,18 @@ ModuleRegistry nafamawModules[] =
                                                 STATIC_METHOD("down_(_)", stringsDowncase)
                                                 STATIC_METHOD("globMatch_(_,_,_,_)", stringsGlobMatch)
                                 END_CLASS
-                                CLASS(StringBuffer)
-                                        ALLOCATE(allocateStringBuffer)
-                                        FINALIZE(releaseStringBuffer)
-                                        METHOD("append_(_)", appendStringBuffer)
-                                        METHOD("preppend_(_)", preppendStringBuffer)
-                                        METHOD("insert_(_,_)", setAtStringBuffer)
-                                        METHOD("shrinkStart(_)", shrinkStartStringBuffer)
-                                        METHOD("shrinkEnd(_)", shrinkEndStringBuffer)
-                                        METHOD("data", stringBufferData)
-                                        METHOD("size", stringBufferSize)
-                                        METHOD("isEmpty", isEmptyStringBuffer)
+                                CLASS(ByteArray)
+                                        ALLOCATE(allocateBuffer)
+                                        FINALIZE(releaseBuffer)
+                                        METHOD("sub_(_,_)", bufferRange)
+                                        METHOD("append_(_)", appendBuffer)
+                                        METHOD("preppend_(_)", preppendBuffer)
+                                        METHOD("insert_(_,_)", setAtBuffer)
+                                        METHOD("shrinkStart(_)", shrinkStartBuffer)
+                                        METHOD("shrinkEnd(_)", shrinkEndBuffer)
+                                        METHOD("data", bufferData)
+                                        METHOD("size", bufferSize)
+                                        METHOD("isEmpty", isEmptyBuffer)
                                 END_CLASS
                 END_MODULE
                 SENTINEL_MODULE

@@ -1,0 +1,77 @@
+##package=nafamaw
+
+dunan kulu ByteArray {
+    @weele
+    dilan kura(capacity) => gansan
+    dunan append_(data)
+    dunan preppend_(data)
+    dunan insert_(pos, data)
+    dunan shrinkStart(count)
+    dunan shrinkEnd(count)
+    dunan size
+    dunan data
+    dunan isEmpty
+    dunan sub_(from,to)
+}
+
+kulu Buffer {
+    nin _content
+    @weele
+    dilan kura() {
+        ale._content = ByteArray(32)
+    }
+    @weele
+    dilan kura(size) {
+        ale._content = ByteArray(size)
+    }
+    +(other) {
+        segin niin ale.append(other.data)
+    }
+    size => ale._content.size
+    data => ale._content.data
+    isEmpty => ale._content.isEmpty
+    append(data) {
+        ale._content.append_(data)
+        segin niin ale
+    }
+    preppend(data) {
+        ale._content.preppend_(data)
+        segin niin ale
+    }
+    insert(pos, data) {
+        ale._content.insert_(pos, data)
+        segin niin ale
+    }
+
+    [range] {
+        nii !(range ye Funan) Djuru.tike("Invalid range")
+        nii range.damine < 0 || (range.laban + 1) > ale.size Djuru.tike("Range out of bounds")
+        segin niin Buffer.from(ale._content.sub_(range.damine, range.laban + 1))
+    }
+    [from, to] => ale[from..to]
+
+
+    sebenma => ale.data
+
+    dialen from(data) {
+        nin buff = Buffer()
+        nii (data ye Seben) {
+            buff.append(data)
+        } note nii (data ye Tugun) {
+            seginka data kono item buff.append(item)
+        }
+        segin niin buff
+    }
+    
+}
+
+kulu StringBuffer ye Buffer {
+    @weele
+    dilan kura() {
+        faa()
+    }
+    @weele
+    dilan kura(size) {
+        faa(size)
+    }
+}

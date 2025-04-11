@@ -54,9 +54,8 @@ kulu KuluDumare ye FenDumare {
   weele(target, methodName, args) {
        nin method
        seginka (ale._methods kono method) {
-            nii (method.signature == methodName) segin niin method.weele(ale, args)
+            nii (method.signature == methodName) segin niin method.weele(target, args)
        }
-       Tii."molo"()
   }
 }
 

@@ -30,6 +30,14 @@ kulu Buffer {
     size => ale._content.size
     data => ale._content.data
     isEmpty => ale._content.isEmpty
+    shrinkEnd(count) {
+        ale._content.shrinkEnd(count)
+        segin niin ale
+    }
+    shrinkStart(count) {
+        ale._content.shrinkStart(count)
+        segin niin ale
+    }
     append(data) {
         ale._content.append_(data)
         segin niin ale

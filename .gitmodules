@@ -1,0 +1,4 @@
+[submodule "deps/mosc"]
+	path = deps/mosc
+	url = https://github.com/mosclang/mosc
+	branch = feat/reentrancy

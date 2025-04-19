@@ -5,6 +5,7 @@
         "string.h": "c",
         "dumare.h": "c",
         "string": "c",
-        "string_view": "c"
+        "string_view": "c",
+        "debuger.h": "c"
     }
 }

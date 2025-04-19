@@ -5,7 +5,7 @@
 #include <msc.h>
 #include <string.h>
 #include <nafamaw.h>
-#include "string_buffer.h"
+#include "buffer.h"
 
 static void print(MVM *_, const char *text) {
     printf("%s", text);

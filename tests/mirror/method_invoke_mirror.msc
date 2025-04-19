@@ -14,6 +14,10 @@ kabo "dumare" nani Dumare, KuluDumare
 nin dumare = Dumare.diaaBo(Test)
 nin test = Test.kura("Molo")
 A.yira(test.test("rr", ".."))
-nin method = dumare.tiidenw[7]
-A.yira(method.weele(test, ["ppp", "..=", "pp"]))
-A.yira(dumare.weele("test(_,_)", ["OO", "WW", "pp"]))
+A.yira(dumare.tiidenw)
+dumare.tiidenw.kelenkelen { it =>
+    A.yira(it.signature)
+}
+# nin method = dumare.tiidenw[7]
+# A.yira(method.weele(test, ["ppp", "..=", "pp"]))
+# A.yira(dumare.weele(test,"test(_,_)", ["OO", "WW", "pp"]))

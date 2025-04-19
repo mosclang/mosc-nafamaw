@@ -53,7 +53,7 @@ LIST(APPEND MSC_INCLUDE_DIRS
 
 #include mosc dependancy
 LIST(APPEND MSC_INCLUDE_DIRS
-        deps/mosc/api
+        deps/mosc/src/api
         deps/mosc/src/builtin
         deps/mosc/src/common
         deps/mosc/src/compiler

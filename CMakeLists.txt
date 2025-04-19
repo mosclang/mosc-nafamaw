@@ -47,6 +47,7 @@ LIST(APPEND MSC_SOURCE_FILES ${SOURCE_FILES})
 
 LIST(APPEND MSC_INCLUDE_DIRS
         src
+        deps
         src/vendors
         src/packages
         )

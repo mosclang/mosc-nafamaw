@@ -5,9 +5,22 @@
 static MSCHandle* bufferClass = NULL;
 static int bufferCount = 0;
 Buffer* newBuffer(int capacity) {
+    if (capacity <= 0) {
+        capacity = 1;
+    }
     Buffer* buffer = malloc(sizeof(Buffer));
+    if (buffer == NULL) {
+        return NULL;
+    }
     buffer->data = malloc(sizeof(char) * capacity);
-    buffer->data[0]='\0';
+    if (buffer->data == NULL) {
+        free(buffer);
+        return NULL;
+    }
+    buffer->vm = NULL;
+    buffer->size = 0;
+    buffer->capacity = capacity;
+    buffer->data[0] = '\0';
     return buffer;
 }
 bool ensureBufferSize(Buffer* buffer, int length) {
